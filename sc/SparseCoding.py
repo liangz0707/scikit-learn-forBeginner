@@ -9,7 +9,6 @@ import math
 import random as rd
 
 from sklearn.datasets import load_iris
-from sklearn.decomposition import PCA,IncrementalPCA
 
 def get_patch(filename,patch_size = 5,patch_num = 1000):
     src = io.imread(filename)
@@ -26,13 +25,12 @@ def get_patch(filename,patch_size = 5,patch_num = 1000):
 n_components = 2
 
 X = get_patch('T.png')
-pca = PCA(n_components=n_components)
-X_pca = pca.fit_transform(X)
+print len(X)
+print type(X)
 
 
-plt.figure(figsize=(8, 8))
-plt.scatter(X_pca[:,1], X_pca[:,0],c='r')
+#plt.figure(figsize=(8, 8))
+#plt.scatter(X_pca[:,1], X_pca[:,0],c='r')
 
 #plt.axis([-4, 4, -1.5, 1.5])
-
-plt.show()
+#plt.show()
