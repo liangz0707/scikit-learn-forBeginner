@@ -33,7 +33,8 @@ print len(X)
 print type(X)
 
 #字典学习部分
-dico = MiniBatchDictionaryLearning(n_components=100, alpha=1, n_iter=500)
+#dico = DictionaryLearning(n_components=100, alpha=1) #常用字典版本
+dico = MiniBatchDictionaryLearning(n_components=100, alpha=1, n_iter=500) #minibancth版本
 V = dico.fit(X).components_
 
 ''''''
