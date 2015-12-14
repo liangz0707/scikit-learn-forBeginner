@@ -7,6 +7,7 @@ import skimage.io as io
 import skimage.color as color
 import math
 import random as rd
+from sklearn.decomposition import SparseCoder
 
 from sklearn.datasets import load_iris
 
@@ -25,10 +26,14 @@ def get_patch(filename,patch_size = 5,patch_num = 1000):
 n_components = 2
 
 X = get_patch('T.png')
+X= np.vstack(X)
 print len(X)
 print type(X)
 
-
+coder = SparseCoder(dictionary=X, transform_algorithm='lasso_lars',
+                        transform_alpha=10)
+print coder.code
+print len(coder.dictionary)
 #plt.figure(figsize=(8, 8))
 #plt.scatter(X_pca[:,1], X_pca[:,0],c='r')
 
